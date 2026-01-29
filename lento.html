@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lento — Cafecito, Composting, Comunidad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&family=Urbanist:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cafe: #3d2817;
+            --cafe-claro: #8b6f47;
+            --crema: #faf8f3;
+            --tierra: #d4634d;
+            --verde: #a5b396;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f0e8 50%, #ede5d8 100%);
+            color: var(--cafe);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 99, 77, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(165, 179, 150, 0.06) 0%, transparent 50%);
+            animation: drift 40s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(165, 179, 150, 0.2);
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--cafe);
+            margin-bottom: 24px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'Newsreader', serif;
+            font-size: clamp(56px, 10vw, 120px);
+            line-height: 1;
+            margin-bottom: 32px;
+            font-weight: 600;
+            letter-spacing: -2px;
+            color: var(--cafe);
+            animation: slideUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-description {
+            font-size: clamp(20px, 3vw, 28px);
+            line-height: 1.6;
+            margin-bottom: 48px;
+            color: var(--cafe-claro);
+            animation: slideUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-description em {
+            font-style: italic;
+            color: var(--tierra);
+            font-weight: 600;
+        }
+
+        /* Email Capture Card */
+        .email-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(212, 99, 77, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 32px;
+            animation: slideUp 1s ease-out 0.6s backwards;
+        }
+
+        .email-card h3 {
+            font-family: 'Newsreader', serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--cafe);
+        }
+
+        .email-card p {
+            font-size: 16px;
+            color: var(--cafe-claro);
+            margin-bottom: 24px;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 24px;
+            border: 2px solid var(--cafe);
+            border-radius: 100px;
+            font-size: 16px;
+            font-family: 'Urbanist', sans-serif;
+            background: var(--crema);
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--tierra);
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Urbanist', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--cafe);
+            color: var(--crema);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(61, 40, 23, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cafe);
+            border: 2px solid var(--cafe);
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--cafe);
+            color: var(--crema);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cafe-claro);
+            text-decoration: none;
+            font-size: 15px;
+            animation: slideUp 1s ease-out 0.8s backwards;
+        }
+
+        .social-link:hover {
+            color: var(--tierra);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-tag {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            color: var(--tierra);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        h2 {
+            font-family: 'Newsreader', serif;
+            font-size: clamp(40px, 7vw, 64px);
+            line-height: 1.2;
+            margin-bottom: 40px;
+            color: var(--cafe);
+        }
+
+        /* Two Column Grid */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .content-block h3 {
+            font-family: 'Newsreader', serif;
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--cafe);
+        }
+
+        .content-block p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--cafe-claro);
+            margin-bottom: 16px;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Coming Soon Grid */
+        .coming-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .coming-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: var(--verde);
+            color: var(--cafe);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .coming-card h4 {
+            font-family: 'Newsreader', serif;
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--cafe);
+        }
+
+        .coming-card p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--cafe-claro);
+            margin-bottom: 20px;
+        }
+
+        .price-hint {
+            font-size: 14px;
+            color: var(--cafe);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Dark Section */
+        .dark-section {
+            background: var(--cafe);
+            color: var(--crema);
+            margin: 0 -100vw;
+            padding: 100px 100vw;
+        }
+
+        .dark-section h2,
+        .dark-section h3 {
+            color: var(--crema);
+        }
+
+        .dark-section p {
+            color: rgba(250, 248, 243, 0.9);
+        }
+
+        .dark-section .section-tag {
+            color: var(--verde);
+        }
+
+        /* Social Grid */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(61, 40, 23, 0.1);
+            border-radius: 24px;
+            padding: 32px;
+            text-decoration: none;
+            color: var(--cafe);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .social-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-4px);
+            border-color: var(--tierra);
+        }
+
+        .social-icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .social-card h4 {
+            font-family: 'Newsreader', serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--cafe);
+        }
+
+        .social-card p {
+            font-size: 14px;
+            color: var(--cafe-claro);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .footer-signature {
+            font-family: 'Caveat', cursive;
+            font-size: 56px;
+            color: var(--tierra);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: var(--cafe-claro);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--tierra);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .two-col,
+            .coming-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-input {
+                min-width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">☕ Charlotte, NC</div>
+                <h1>Lento</h1>
+                <p class="hero-description">
+                    <em>Cafecito</em>. Composting. <em>Comunidad</em>.<br>
+                    Building a slower world, one cup at a time.
+                </p>
+
+                <!-- Email Capture -->
+                <div class="email-card">
+                    <h3>Get notified first 🔔</h3>
+                    <p>Secret cafecito popups + soil shop launching February 2026</p>
+                    <!-- Replace with your actual Substack embed code -->
+                    <div class="email-form">
+                        <input type="email" class="email-input" placeholder="tu email / your email">
+                        <button class="btn btn-primary">Join the list</button>
+                    </div>
+                    <p style="font-size: 13px; margin-top: 16px; margin-bottom: 0; opacity: 0.7;">
+                        We'll only email you about popups and soil drops. No spam, solo lo importante.
+                    </p>
+                </div>
+
+                <a href="https://tiktok.com/@slowdownirma" class="social-link" target="_blank">
+                    Follow the journey on TikTok @slowdownirma →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Lento -->
+    <section>
+        <div class="container">
+            <span class="section-tag">qué es esto?</span>
+            <h2>What is Lento?</h2>
+
+            <div class="two-col">
+                <div class="content-block">
+                    <h3>Cuban Cafecito Culture</h3>
+                    <p>
+                        La Ventanita by Lento brings authentic Cuban cafecito to Charlotte. 
+                        Using Panamanian beans, we're creating gathering spaces where the 
+                        Spanish-speaking community can connect, slow down, and feel at home.
+                    </p>
+                    <p>
+                        This isn't just coffee. Es comunidad. Es cultura. Es el futuro.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Coffee → Soil Transformation</h3>
+                    <p>
+                        We collect used coffee grounds from local Charlotte cafés every weekend 
+                        and transform them into enriched soil over 2-4 weeks.
+                    </p>
+                    <p>
+                        Waste becomes life. Your plants get the best soil. 
+                        The planet gets a break. Todo gana.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section>
+        <div class="container">
+            <span class="section-tag">próximamente</span>
+            <h2>Coming February 2026</h2>
+
+            <div class="coming-grid">
+                <div class="coming-card glass-card">
+                    <span class="coming-badge">POPUPS</span>
+                    <h4>Secret Cafecito Events</h4>
+                    <p>
+                        Intimate popup experiences serving cortaditos, coladas, and café con leche. 
+                        Announced via TikTok and our email list.
+                    </p>
+                    <p style="font-style: italic; font-size: 15px;">
+                        First event: TBA. Join the list above to get invited.
+                    </p>
+                </div>
+
+                <div class="coming-card glass-card">
+                    <span class="coming-badge">SHOP</span>
+                    <h4>Enriched Coffee Soil</h4>
+                    <p>
+                        Premium soil enriched with coffee grounds. Perfect for houseplants, 
+                        gardens, and anyone who wants their plants to thrive.
+                    </p>
+                    <div class="price-hint">Small bags $15 • Medium $25 • Large $40</div>
+                    <button class="btn btn-secondary">Join Waitlist</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Vision -->
+    <section class="dark-section">
+        <div class="container">
+            <span class="section-tag">la visión</span>
+            <h2>Building toward something bigger</h2>
+
+            <div class="two-col">
+                <div>
+                    <p style="font-size: 20px; line-height: 1.8;">
+                        Lento is more than cafecito and soil. It's the foundation for a 
+                        recreation center for the Spanish-speaking community in Charlotte—
+                        a place to gather, connect, and build together.
+                    </p>
+                </div>
+                <div>
+                    <p style="font-size: 20px; line-height: 1.8;">
+                        Every cup of coffee, every bag of soil, every connection made—
+                        they're all steps toward that 10-year vision. 
+                        Slow, intentional, transformative.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Follow Journey -->
+    <section>
+        <div class="container">
+            <span class="section-tag">stay connected</span>
+            <h2>Follow the journey</h2>
+
+            <div class="social-grid">
+                <a href="https://tiktok.com/@slowdownirma" class="social-card glass-card" target="_blank">
+                    <span class="social-icon">🎵</span>
+                    <h4>TikTok</h4>
+                    <p>@slowdownirma</p>
+                </a>
+
+                <a href="https://irmamesa.substack.com" class="social-card glass-card" target="_blank">
+                    <span class="social-icon">✍️</span>
+                    <h4>Substack</h4>
+                    <p>Letters from Irma</p>
+                </a>
+
+                <a href="https://youtube.com/@theslowdown" class="social-card glass-card" target="_blank">
+                    <span class="social-icon">📹</span>
+                    <h4>YouTube</h4>
+                    <p>The Slow Down</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-signature">stay lento ☕</div>
+            
+            <div class="footer-links">
+                <a href="mailto:hello@justlento.com">EMAIL</a>
+                <a href="https://instagram.com/justlento" target="_blank">INSTAGRAM</a>
+                <a href="https://justirma.com" target="_blank">ABOUT IRMA</a>
+            </div>
+
+            <p style="font-size: 13px; color: var(--cafe-claro); margin-top: 16px;">
+                Made with ☕ in Charlotte, NC
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // You can add Substack iframe embed here or use their native form
+        // Replace the email form above with actual Substack embed code
+    </script>
+</body>
+</html>
