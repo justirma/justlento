@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lento — Cafecito, Composting, Comunidad</title>
+    <title>lento: Cafecito, Composting, Comunidad</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&family=Urbanist:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cafe: #3d2817;
-            --cafe-claro: #8b6f47;
-            --crema: #faf8f3;
-            --tierra: #d4634d;
-            --verde: #a5b396;
+            --cafe: #2b1c10;
+            --cafe-claro: #6b5641;
+            --crema: #f5ecdb;
+            --papel: #efe4cd;
+            --tierra: #d1532b;
+            --oliva: #454524;
+            --mostaza: #d99a3d;
         }
 
         * {
@@ -23,32 +25,14 @@
         }
 
         body {
-            font-family: 'Urbanist', sans-serif;
-            background: linear-gradient(135deg, #faf8f3 0%, #f5f0e8 50%, #ede5d8 100%);
+            font-family: 'Archivo', sans-serif;
+            background-color: var(--crema);
+            background-image:
+                radial-gradient(rgba(43, 28, 16, 0.05) 1px, transparent 1px);
+            background-size: 3px 3px;
             color: var(--cafe);
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        /* Animated background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(212, 99, 77, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(165, 179, 150, 0.06) 0%, transparent 50%);
-            animation: drift 40s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes drift {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, -30px); }
         }
 
         .container {
@@ -72,129 +56,120 @@
         }
 
         .hero-badge {
-            display: inline-block;
-            padding: 10px 24px;
-            background: rgba(165, 179, 150, 0.2);
-            border-radius: 100px;
-            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: var(--tierra);
+            border: 2px solid var(--cafe);
+            border-radius: 6px;
+            box-shadow: 4px 4px 0 var(--cafe);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--cafe);
-            margin-bottom: 24px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--crema);
+            margin-bottom: 20px;
+            transform: rotate(-2deg);
             animation: fadeIn 0.8s ease-out;
         }
 
-        h1 {
-            font-family: 'Newsreader', serif;
-            font-size: clamp(56px, 10vw, 120px);
-            line-height: 1;
-            margin-bottom: 32px;
-            font-weight: 600;
-            letter-spacing: -2px;
-            color: var(--cafe);
+        .wordmark {
+            margin-bottom: 16px;
             animation: slideUp 1s ease-out 0.2s backwards;
         }
 
+        .logo-mark {
+            display: block;
+            width: min(56vw, 272px);
+            height: auto;
+        }
+
         .hero-description {
-            font-size: clamp(20px, 3vw, 28px);
-            line-height: 1.6;
-            margin-bottom: 48px;
+            font-size: clamp(19px, 2.6vw, 25px);
+            line-height: 1.55;
+            margin-bottom: 28px;
+            max-width: 34ch;
             color: var(--cafe-claro);
             animation: slideUp 1s ease-out 0.4s backwards;
         }
 
         .hero-description em {
-            font-style: italic;
+            font-style: normal;
             color: var(--tierra);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Email Capture Card */
         .email-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(212, 99, 77, 0.2);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 32px;
+            background: var(--papel);
+            border: 3px solid var(--cafe);
+            border-radius: 10px;
+            box-shadow: 7px 7px 0 var(--cafe);
+            padding: 32px;
+            margin-bottom: 40px;
             animation: slideUp 1s ease-out 0.6s backwards;
         }
 
         .email-card h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 24px;
-            margin-bottom: 12px;
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 22px;
+            letter-spacing: 0.02em;
+            margin-bottom: 10px;
             color: var(--cafe);
         }
 
         .email-card p {
             font-size: 16px;
             color: var(--cafe-claro);
-            margin-bottom: 24px;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .email-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 16px 24px;
-            border: 2px solid var(--cafe);
-            border-radius: 100px;
-            font-size: 16px;
-            font-family: 'Urbanist', sans-serif;
-            background: var(--crema);
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: var(--tierra);
+            margin-bottom: 20px;
         }
 
         .btn {
-            padding: 16px 32px;
-            border-radius: 100px;
+            padding: 14px 28px;
+            border-radius: 6px;
             text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Urbanist', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--cafe);
-            color: var(--crema);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(61, 40, 23, 0.3);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .btn-secondary {
-            background: transparent;
+            background: var(--crema);
             color: var(--cafe);
             border: 2px solid var(--cafe);
+            box-shadow: 4px 4px 0 var(--cafe);
             display: inline-block;
         }
 
         .btn-secondary:hover {
-            background: var(--cafe);
+            background: var(--tierra);
             color: var(--crema);
+            border-color: var(--cafe);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--cafe);
         }
 
         .social-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--cafe-claro);
+            color: var(--cafe);
             text-decoration: none;
-            font-size: 15px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            border-bottom: 2px solid var(--tierra);
+            padding-bottom: 2px;
             animation: slideUp 1s ease-out 0.8s backwards;
         }
 
@@ -208,15 +183,18 @@
         }
 
         .section-tag {
-            font-family: 'Caveat', cursive;
-            font-size: 32px;
+            font-family: 'Yellowtail', cursive;
+            font-size: 34px;
             color: var(--tierra);
-            margin-bottom: 16px;
+            margin-bottom: 8px;
             display: block;
         }
 
         h2 {
-            font-family: 'Newsreader', serif;
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
             font-size: clamp(40px, 7vw, 64px);
             line-height: 1.2;
             margin-bottom: 40px;
@@ -232,37 +210,61 @@
         }
 
         .content-block h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 28px;
-            margin-bottom: 16px;
-            color: var(--cafe);
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 22px;
+            letter-spacing: 0.02em;
+            margin-bottom: 14px;
+            color: var(--tierra);
         }
 
         .content-block p {
-            font-size: 18px;
-            line-height: 1.8;
+            font-size: 17px;
+            line-height: 1.75;
             color: var(--cafe-claro);
             margin-bottom: 16px;
         }
 
-        /* Glass Cards */
+        /* Sticker Cards */
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 24px;
-            padding: 40px;
-            transition: transform 0.3s ease;
+            background: var(--papel);
+            border: 3px solid var(--cafe);
+            border-radius: 10px;
+            box-shadow: 7px 7px 0 var(--cafe);
+            padding: 36px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .glass-card:hover {
-            transform: translateY(-4px);
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0 var(--cafe);
+        }
+
+        .coming-grid > .glass-card:nth-child(2),
+        .social-grid > .glass-card:nth-child(2) {
+            transform: rotate(1.2deg);
+        }
+
+        .coming-grid > .glass-card:nth-child(2):hover,
+        .social-grid > .glass-card:nth-child(2):hover {
+            transform: rotate(1.2deg) translate(3px, 3px);
+        }
+
+        .coming-grid > .glass-card:nth-child(3),
+        .social-grid > .glass-card:nth-child(3) {
+            transform: rotate(-1deg);
+        }
+
+        .coming-grid > .glass-card:nth-child(3):hover,
+        .social-grid > .glass-card:nth-child(3):hover {
+            transform: rotate(-1deg) translate(3px, 3px);
         }
 
         /* Coming Soon Grid */
         .coming-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 32px;
             margin-top: 48px;
         }
@@ -270,45 +272,45 @@
         .coming-card {
             position: relative;
             overflow: hidden;
+            padding: 32px;
         }
 
         .coming-badge {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            background: var(--verde);
+            display: inline-block;
+            background: var(--mostaza);
             color: var(--cafe);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            padding: 5px 14px;
+            border: 2px solid var(--cafe);
+            border-radius: 6px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transform: rotate(-3deg);
+            margin-bottom: 14px;
         }
 
         .coming-card h4 {
-            font-family: 'Newsreader', serif;
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 22px;
+            letter-spacing: 0.02em;
+            margin-bottom: 12px;
             color: var(--cafe);
         }
 
         .coming-card p {
-            font-size: 16px;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.7;
             color: var(--cafe-claro);
-            margin-bottom: 20px;
-        }
-
-        .price-hint {
-            font-size: 14px;
-            color: var(--cafe);
-            font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         /* Dark Section */
         .dark-section {
-            background: var(--cafe);
+            background: var(--oliva);
             color: var(--crema);
             margin: 0 -100vw;
             padding: 100px 100vw;
@@ -320,48 +322,43 @@
         }
 
         .dark-section p {
-            color: rgba(250, 248, 243, 0.9);
+            color: rgba(245, 236, 219, 0.85);
         }
 
         .dark-section .section-tag {
-            color: var(--verde);
+            color: var(--mostaza);
         }
 
         /* Social Grid */
         .social-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
+            gap: 28px;
             margin-top: 48px;
         }
 
         .social-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(61, 40, 23, 0.1);
-            border-radius: 24px;
-            padding: 32px;
             text-decoration: none;
             color: var(--cafe);
-            transition: all 0.3s ease;
             text-align: center;
         }
 
         .social-card:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-4px);
             border-color: var(--tierra);
         }
 
         .social-icon {
-            font-size: 40px;
+            font-size: 36px;
             display: block;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .social-card h4 {
-            font-family: 'Newsreader', serif;
-            font-size: 20px;
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 18px;
+            letter-spacing: 0.02em;
             margin-bottom: 8px;
             color: var(--cafe);
         }
@@ -378,8 +375,8 @@
         }
 
         .footer-signature {
-            font-family: 'Caveat', cursive;
-            font-size: 56px;
+            font-family: 'Yellowtail', cursive;
+            font-size: 52px;
             color: var(--tierra);
             margin-bottom: 24px;
         }
@@ -395,8 +392,10 @@
         .footer-links a {
             color: var(--cafe-claro);
             text-decoration: none;
-            font-size: 14px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
             font-weight: 600;
+            letter-spacing: 0.03em;
             transition: color 0.3s ease;
         }
 
@@ -428,20 +427,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .email-form {
-                flex-direction: column;
-            }
-
-            .email-input {
-                min-width: 100%;
-            }
-
             .btn {
                 width: 100%;
-            }
-
-            h1 {
-                font-size: 48px;
             }
         }
     </style>
@@ -452,7 +439,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">☕ Charlotte, NC</div>
-                <h1>Lento</h1>
+                <h1 class="wordmark">
+                    <img class="logo-mark" src="lento-logo.png" alt="lento">
+                </h1>
                 <p class="hero-description">
                     <em>Cafecito</em>. Composting. <em>Comunidad</em>.<br>
                     Building a slower world, one cup at a time.
@@ -460,20 +449,16 @@
 
                 <!-- Email Capture -->
                 <div class="email-card">
-                    <h3>Get notified first 🔔</h3>
-                    <p>Secret cafecito popups + soil shop launching February 2026</p>
-                    <!-- Replace with your actual Substack embed code -->
-                    <div class="email-form">
-                        <input type="email" class="email-input" placeholder="tu email / your email">
-                        <button class="btn btn-primary">Join the list</button>
-                    </div>
+                    <h3>Stay with the journey 🔔</h3>
+                    <p>Cafecito, compost, and what's next</p>
+                    <iframe src="https://justlento.substack.com/embed" width="100%" height="320" style="max-width: 480px; border: 1px solid #EEE; background: white;" frameborder="0" scrolling="no"></iframe>
                     <p style="font-size: 13px; margin-top: 16px; margin-bottom: 0; opacity: 0.7;">
-                        We'll only email you about popups and soil drops. No spam, solo lo importante.
+                        No spam, solo lo importante.
                     </p>
                 </div>
 
-                <a href="https://tiktok.com/@slowdownirma" class="social-link" target="_blank">
-                    Follow the journey on TikTok @slowdownirma →
+                <a href="https://bio.site/justlento" class="social-link" target="_blank">
+                    See all our links →
                 </a>
             </div>
         </div>
@@ -483,15 +468,15 @@
     <section>
         <div class="container">
             <span class="section-tag">qué es esto?</span>
-            <h2>What is Lento?</h2>
+            <h2>What is lento?</h2>
 
             <div class="two-col">
                 <div class="content-block">
-                    <h3>Cuban Cafecito Culture</h3>
+                    <h3>Cafecito Culture</h3>
                     <p>
-                        La Ventanita by Lento brings authentic Cuban cafecito to Charlotte. 
-                        Using Panamanian beans, we're creating gathering spaces where the 
-                        Spanish-speaking community can connect, slow down, and feel at home.
+                        la ventanita by lento brings authentic Cuban and Panamanian cafecitos
+                        to Charlotte, creating gathering spaces where the Spanish-speaking
+                        community can connect, slow down, and feel at home.
                     </p>
                     <p>
                         This isn't just coffee. Es comunidad. Es cultura. Es el futuro.
@@ -502,7 +487,7 @@
                     <h3>Coffee → Soil Transformation</h3>
                     <p>
                         We collect used coffee grounds from local Charlotte cafés every weekend 
-                        and transform them into enriched soil over 2-4 weeks.
+                        and transform them into enriched soil over 10-12 weeks.
                     </p>
                     <p>
                         Waste becomes life. Your plants get the best soil. 
@@ -513,34 +498,39 @@
         </div>
     </section>
 
-    <!-- Coming Soon -->
+    <!-- What's Brewing -->
     <section>
         <div class="container">
-            <span class="section-tag">próximamente</span>
-            <h2>Coming February 2026</h2>
+            <span class="section-tag">lo que hacemos</span>
+            <h2>What's Brewing</h2>
 
             <div class="coming-grid">
                 <div class="coming-card glass-card">
-                    <span class="coming-badge">POPUPS</span>
-                    <h4>Secret Cafecito Events</h4>
+                    <h4>Cafecito Events</h4>
                     <p>
-                        Intimate popup experiences serving cortaditos, coladas, and café con leche. 
-                        Announced via TikTok and our email list.
+                        Popups around Charlotte serving cortaditos, coladas, and café con leche,
+                        plus teaching folks how to compost their coffee grounds.
+                        Find the next one on our bio site or Instagram.
                     </p>
-                    <p style="font-style: italic; font-size: 15px;">
-                        First event: TBA. Join the list above to get invited.
-                    </p>
+                    <a href="https://bio.site/justlento" class="btn btn-secondary" target="_blank">Follow along →</a>
                 </div>
 
                 <div class="coming-card glass-card">
-                    <span class="coming-badge">SHOP</span>
-                    <h4>Enriched Coffee Soil</h4>
+                    <h4>Workshops</h4>
                     <p>
-                        Premium soil enriched with coffee grounds. Perfect for houseplants, 
+                        Hands-on community sessions on cafecito culture and composting.
+                    </p>
+                    <a href="https://bio.site/justlento" class="btn btn-secondary" target="_blank">Follow along →</a>
+                </div>
+
+                <div class="coming-card glass-card">
+                    <span class="coming-badge">COMING SOON</span>
+                    <h4>Cafecito Compost</h4>
+                    <p>
+                        Premium soil enriched with coffee grounds. Perfect for houseplants,
                         gardens, and anyone who wants their plants to thrive.
                     </p>
-                    <div class="price-hint">Small bags $15 • Medium $25 • Large $40</div>
-                    <button class="btn btn-secondary">Join Waitlist</button>
+                    <a href="https://justlento.substack.com/" class="btn btn-secondary" target="_blank">Subscribe for updates →</a>
                 </div>
             </div>
         </div>
@@ -555,15 +545,15 @@
             <div class="two-col">
                 <div>
                     <p style="font-size: 20px; line-height: 1.8;">
-                        Lento is more than cafecito and soil. It's the foundation for a 
-                        recreation center for the Spanish-speaking community in Charlotte—
+                        lento is more than cafecito and soil. It's the foundation for a
+                        recreation center for the Spanish-speaking community in Charlotte,
                         a place to gather, connect, and build together.
                     </p>
                 </div>
                 <div>
                     <p style="font-size: 20px; line-height: 1.8;">
-                        Every cup of coffee, every bag of soil, every connection made—
-                        they're all steps toward that 10-year vision. 
+                        Every cup of coffee, every bag of soil, every connection made:
+                        they're all steps toward that 10-year vision.
                         Slow, intentional, transformative.
                     </p>
                 </div>
@@ -584,10 +574,10 @@
                     <p>@slowdownirma</p>
                 </a>
 
-                <a href="https://irmamesa.substack.com" class="social-card glass-card" target="_blank">
+                <a href="https://justlento.substack.com/" class="social-card glass-card" target="_blank">
                     <span class="social-icon">✍️</span>
                     <h4>Substack</h4>
-                    <p>Letters from Irma</p>
+                    <p>Letters from the Founder</p>
                 </a>
 
                 <a href="https://youtube.com/@theslowdown" class="social-card glass-card" target="_blank">
@@ -605,8 +595,9 @@
             <div class="footer-signature">stay lento ☕</div>
             
             <div class="footer-links">
-                <a href="mailto:hello@justlento.com">EMAIL</a>
+                <a href="mailto:irma@justlento.com">EMAIL</a>
                 <a href="https://instagram.com/justlento" target="_blank">INSTAGRAM</a>
+                <a href="https://bio.site/justlento" target="_blank">ALL LINKS</a>
                 <a href="https://justirma.com" target="_blank">ABOUT IRMA</a>
             </div>
 
@@ -616,9 +607,5 @@
         </div>
     </footer>
 
-    <script>
-        // You can add Substack iframe embed here or use their native form
-        // Replace the email form above with actual Substack embed code
-    </script>
 </body>
 </html>
