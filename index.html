@@ -16,20 +16,17 @@
     <style>
         :root {
             --cafe: #2b1c10;
-            --cafe-claro: #6b5641;
             --crema: #f5ecdb;
-            --papel: #efe4cd;
             --tierra: #d1532b;
-            --oliva: #454524;
+            --mostaza: #f0b04a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            width: 100%;
             font-family: 'Archivo', sans-serif;
-            background-color: var(--crema);
-            background-image: radial-gradient(rgba(43, 28, 16, 0.05) 1px, transparent 1px);
+            background-color: var(--tierra);
+            background-image: radial-gradient(rgba(43, 28, 16, 0.07) 1px, transparent 1px);
             background-size: 3px 3px;
             color: var(--cafe);
             line-height: 1.6;
@@ -43,259 +40,166 @@
         /* Hero */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 56px;
             align-items: center;
-            padding: 72px 0 64px;
+            padding: 64px 0 88px;
         }
 
-        .logo-mark { display: block; width: min(52vw, 230px); height: auto; margin-bottom: 28px; }
+        .logo-mark { display: block; width: min(48vw, 190px); height: auto; margin-bottom: 32px; }
 
         .hero h1 {
-            font-family: 'Anton', sans-serif;
+            font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
             font-weight: 400;
             text-transform: uppercase;
-            font-size: clamp(44px, 8vw, 84px);
-            line-height: 1.02;
-            margin-bottom: 20px;
+            font-size: clamp(44px, 7.4vw, 84px);
+            line-height: 1;
+            color: var(--crema);
+            margin-bottom: 24px;
         }
 
-        .hero h1 em { font-style: normal; color: var(--tierra); }
+        .hero h1 span { color: var(--cafe); }
 
         .hero p {
             font-size: clamp(18px, 2.4vw, 21px);
-            color: var(--cafe-claro);
             max-width: 30ch;
+            margin-bottom: 32px;
+            font-weight: 500;
         }
 
-        .photo {
-            background: #fff;
-            padding: 10px 10px 14px;
-            border: 2px solid var(--cafe);
-            box-shadow: 6px 6px 0 var(--cafe);
-        }
-
-        .photo img { display: block; width: 100%; height: auto; }
-
-        .photo figcaption {
-            font-family: 'Yellowtail', cursive;
-            font-size: 24px;
-            color: var(--tierra);
-            padding-top: 8px;
-            line-height: 1.1;
-        }
-
-        .hero .photo { transform: rotate(2deg); }
-
-        /* Event strip */
-        .event {
-            display: block;
-            background: var(--tierra);
-            color: var(--crema);
+        .pill {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 2px;
+            background: var(--crema);
+            color: var(--cafe);
             text-decoration: none;
-            border-top: 3px solid var(--cafe);
-            border-bottom: 3px solid var(--cafe);
-            padding: 22px 0;
-            transition: background 0.2s ease;
+            border: 3px solid var(--cafe);
+            border-radius: 10px;
+            box-shadow: 5px 5px 0 var(--cafe);
+            padding: 14px 20px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
-        .event:hover { background: var(--cafe); }
+        .pill:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--cafe); }
 
-        .event .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px 32px;
-            flex-wrap: wrap;
-        }
-
-        .event-when {
+        .pill small {
             font-family: 'IBM Plex Mono', monospace;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            opacity: 0.9;
+            color: var(--tierra);
         }
 
-        .event-name {
-            font-family: 'Anton', sans-serif;
+        .pill strong {
+            font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+            font-weight: 400;
+            font-size: 22px;
             text-transform: uppercase;
-            font-size: clamp(24px, 4.5vw, 38px);
-            line-height: 1.1;
+            line-height: 1.15;
         }
 
-        .event-cta {
+        .hero-img { width: 100%; height: auto; display: block; border-radius: 14px; border: 3px solid var(--cafe); }
+
+        /* What we do */
+        .what { background: var(--cafe); color: var(--crema); padding: 88px 0; }
+
+        .what-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 56px;
+            align-items: center;
+        }
+
+        .what h2 {
+            font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: clamp(38px, 6vw, 60px);
+            line-height: 1.02;
+            color: var(--tierra);
+            margin-bottom: 22px;
+        }
+
+        .what p { font-size: 18px; line-height: 1.7; margin-bottom: 16px; max-width: 40ch; color: rgba(245, 236, 219, 0.9); }
+        .what p strong { color: var(--mostaza); }
+
+        .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .duo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 12px; }
+        .duo img:nth-child(2) { margin-top: 36px; }
+
+        /* Footer / signup */
+        .end { padding: 88px 0 56px; text-align: center; }
+
+        .end h2 {
+            font-family: 'Yellowtail', cursive;
+            font-weight: 400;
+            font-size: clamp(44px, 9vw, 72px);
+            color: var(--crema);
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .end p { font-size: 18px; font-weight: 500; margin-bottom: 28px; }
+
+        .btn {
+            display: inline-block;
+            background: var(--cafe);
+            color: var(--crema);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
             font-family: 'IBM Plex Mono', monospace;
             font-weight: 600;
             font-size: 14px;
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            white-space: nowrap;
+            box-shadow: 5px 5px 0 var(--crema);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
-        /* What we do */
-        .what { padding: 88px 0 48px; }
+        .btn:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--crema); }
 
-        .what-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: start;
-        }
+        .links { display: flex; justify-content: center; gap: 12px 28px; flex-wrap: wrap; margin-top: 64px; }
 
-        .photos { position: relative; min-height: 480px; }
-
-        .photos .photo { position: absolute; width: 62%; }
-        .photos .photo:nth-child(1) { top: 0; left: 0; transform: rotate(-3deg); }
-        .photos .photo:nth-child(2) { top: 190px; right: 0; transform: rotate(2.5deg); }
-
-        .what h2 {
-            font-family: 'Anton', sans-serif;
-            font-weight: 400;
-            text-transform: uppercase;
-            font-size: clamp(36px, 6vw, 56px);
-            line-height: 1.05;
-            margin-bottom: 20px;
-        }
-
-        .what p {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--cafe-claro);
-            margin-bottom: 16px;
-            max-width: 38ch;
-        }
-
-        .what p strong { color: var(--cafe); }
-
-        /* Soil / signup */
-        .soil {
-            background: var(--oliva);
-            color: var(--crema);
-            padding: 72px 0;
-            margin-top: 56px;
-        }
-
-        .soil .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .soil .tag {
-            font-family: 'Yellowtail', cursive;
-            font-size: 32px;
-            color: #d99a3d;
-            display: block;
-        }
-
-        .soil h2 {
-            font-family: 'Anton', sans-serif;
-            font-weight: 400;
-            text-transform: uppercase;
-            font-size: clamp(34px, 5.5vw, 52px);
-            line-height: 1.05;
-            margin-bottom: 14px;
-        }
-
-        .soil p { font-size: 18px; color: rgba(245, 236, 219, 0.88); max-width: 34ch; }
-
-        .signup {
-            background: var(--papel);
-            border: 3px solid var(--cafe);
-            box-shadow: 6px 6px 0 var(--cafe);
-            border-radius: 10px;
-            padding: 24px;
-            color: var(--cafe);
-        }
-
-        .signup iframe { display: block; width: 100%; max-width: 480px; height: 320px; border: 0; background: transparent; }
-
-        .signup small { display: block; font-size: 13px; opacity: 0.7; margin-top: 8px; }
-
-        /* Footer */
-        footer { padding: 72px 0 56px; text-align: center; }
-
-        .vision {
-            font-size: 17px;
-            color: var(--cafe-claro);
-            max-width: 46ch;
-            margin: 0 auto 36px;
-        }
-
-        .footer-signature {
-            font-family: 'Yellowtail', cursive;
-            font-size: 52px;
-            color: var(--tierra);
-            margin-bottom: 20px;
-        }
-
-        .footer-links { display: flex; justify-content: center; gap: 12px 28px; flex-wrap: wrap; }
-
-        .footer-links a {
+        .links a {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 0.03em;
             text-transform: uppercase;
             text-decoration: none;
-            border-bottom: 2px solid var(--tierra);
+            border-bottom: 2px solid var(--cafe);
             padding-bottom: 1px;
         }
 
-        .footer-links a:hover { color: var(--tierra); }
+        .links a:hover { color: var(--crema); border-color: var(--crema); }
 
         @media (max-width: 768px) {
-            .hero, .what-grid, .soil .container { grid-template-columns: minmax(0, 1fr); }
-            .hero { gap: 40px; padding: 48px 0 48px; }
-            .what { padding-top: 64px; }
-            .photos { min-height: 0; display: grid; gap: 24px; }
-            .photos .photo { position: static; width: 88%; }
-            .photos .photo:nth-child(2) { margin-left: auto; }
-            .event-cta { white-space: normal; }
+            .hero, .what-grid { grid-template-columns: minmax(0, 1fr); }
+            .hero { gap: 40px; padding: 40px 0 64px; }
+            .what { padding: 64px 0; }
+            .end { padding-top: 64px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="hero">
-            <div>
-                <img class="logo-mark" src="lento-logo.png" alt="lento">
-                <h1><em>Cafecito.</em><br>Compost.<br><em>Comunidad.</em></h1>
-                <p>Charlotte coffee grounds, turned into soil.</p>
-            </div>
-            <figure class="photo">
-                <img src="img/buckets.jpg" alt="White lento buckets full of coffee grounds and cardboard" width="1400" height="933">
-                <figcaption>grounds in, soil out</figcaption>
-            </figure>
-        </header>
-    </div>
-
-    <a class="event" href="kokedama">
-        <div class="container">
-            <div>
-                <div class="event-when">Next up · Sat, Nov 14 · 2 to 4 PM</div>
-                <div class="event-name">El Patio de Atrás: Cafecito, Compost &amp; Kokedama</div>
-            </div>
-            <div class="event-cta">Details + RSVP →</div>
+    <header class="container hero">
+        <div>
+            <img class="logo-mark" src="lento-logo.png" alt="lento">
+            <h1>Cafecito.<br><span>Compost.</span><br>Comunidad.</h1>
+            <p>Charlotte coffee grounds, turned into soil.</p>
+            <a class="pill" href="kokedama">
+                <small>Next up · Sat, Nov 14 · 2 to 4 PM</small>
+                <strong>El Patio de Atrás →</strong>
+            </a>
         </div>
-    </a>
+        <img class="hero-img" src="img/buckets.jpg" alt="White lento buckets full of coffee grounds and cardboard" width="1400" height="933" style="height:auto">
+    </header>
 
     <section class="what">
         <div class="container what-grid">
-            <div class="photos">
-                <figure class="photo">
-                    <img src="img/grounds.jpg" alt="A bucket of coffee grounds and shredded cardboard" width="1200" height="900" loading="lazy">
-                    <figcaption>browns + greens</figcaption>
-                </figure>
-                <figure class="photo">
-                    <img src="img/hand.jpg" alt="A hand covered in coffee grounds above a bucket of compost" width="1000" height="1333" loading="lazy">
-                    <figcaption>hands in it</figcaption>
-                </figure>
-            </div>
-
             <div>
                 <h2>Slow coffee,<br>slow soil.</h2>
                 <p>
@@ -311,31 +215,22 @@
                     community. Slowly, on purpose.
                 </p>
             </div>
-        </div>
-    </section>
-
-    <section class="soil">
-        <div class="container">
-            <div>
-                <span class="tag">coming soon</span>
-                <h2>Cafecito Compost</h2>
-                <p>Soil enriched with coffee grounds, for houseplants and gardens. Get a note when it's ready.</p>
-            </div>
-            <div class="signup">
-                <iframe src="https://justlento.substack.com/embed?transparent=1" frameborder="0" scrolling="no" title="Subscribe to lento"></iframe>
-                <small>No spam, solo lo importante.</small>
+            <div class="duo">
+                <img src="img/grounds.jpg" alt="A bucket of coffee grounds and shredded cardboard" width="1200" height="900" loading="lazy">
+                <img src="img/hand.jpg" alt="A hand covered in coffee grounds above a bucket of compost" width="1000" height="1333" loading="lazy">
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="end">
         <div class="container">
-            <div class="footer-signature">stay lento ☕</div>
-            <div class="footer-links">
+            <h2>stay lento ☕</h2>
+            <p>Cafecito Compost soil is coming soon. Get a note when it's ready.</p>
+            <a class="btn" href="https://justlento.substack.com/" target="_blank" rel="noopener">Get the letters →</a>
+            <div class="links">
                 <a href="https://instagram.com/justlento" target="_blank" rel="noopener">Instagram</a>
                 <a href="https://tiktok.com/@slowdownirma" target="_blank" rel="noopener">TikTok</a>
                 <a href="https://youtube.com/@theslowdown" target="_blank" rel="noopener">YouTube</a>
-                <a href="https://justlento.substack.com/" target="_blank" rel="noopener">Substack</a>
                 <a href="https://bio.site/justlento" target="_blank" rel="noopener">All links</a>
                 <a href="mailto:irma@justlento.com">Email</a>
                 <a href="https://justirma.com" target="_blank" rel="noopener">About Irma</a>
