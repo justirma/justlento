@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Patio de Atrás: lento × YAKUMAMA</title>
+    <meta name="description" content="Cafecito, Compost & Kokedama. Saturday, November 14 at 2 PM. Event details, kokedama care guide, and links from lento × YAKUMAMA.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde: #4f7a28;
+            --verde-hondo: #3a5c1c;
+            --crema: #f5ecdb;
+            --papel: #efe4cd;
+            --cafe: #2b1c10;
+            --cafe-claro: #6b5641;
+            --tierra: #d1532b;
+            --mostaza: #d99a3d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: var(--verde);
+            background-image: radial-gradient(rgba(245, 236, 219, 0.08) 1px, transparent 1px);
+            background-size: 3px 3px;
+            color: var(--crema);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        .wrap {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a { color: inherit; }
+
+        /* Hero */
+        .hero { padding: 48px 0 40px; }
+
+        .display {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: 0.01em;
+        }
+
+        .hero h1 { font-size: clamp(34px, 11vw, 56px); margin-bottom: 20px; }
+
+        .subtitle {
+            font-size: clamp(20px, 5.5vw, 28px);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 28px;
+        }
+
+        .when {
+            background: var(--crema);
+            color: var(--cafe);
+            border: 3px solid var(--cafe);
+            border-radius: 10px;
+            box-shadow: 6px 6px 0 var(--cafe);
+            padding: 22px;
+            margin-bottom: 28px;
+        }
+
+        .when .date {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 18px;
+            letter-spacing: 0.03em;
+        }
+
+        .when .place { margin-top: 6px; color: var(--cafe-claro); }
+
+        .blurb { font-style: italic; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 28px; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 26px;
+            background: var(--tierra);
+            color: var(--crema);
+            border: 2px solid var(--cafe);
+            border-radius: 6px;
+            box-shadow: 4px 4px 0 var(--cafe);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--cafe); }
+
+        .note { font-size: 12px; opacity: 0.8; margin-top: 12px; }
+
+        /* Sections */
+        section { padding: 40px 0; }
+
+        h2 {
+            font-size: clamp(22px, 6vw, 30px);
+            margin-bottom: 8px;
+        }
+
+        .lede { opacity: 0.9; margin-bottom: 24px; }
+
+        .card {
+            background: var(--papel);
+            color: var(--cafe);
+            border: 3px solid var(--cafe);
+            border-radius: 10px;
+            box-shadow: 6px 6px 0 var(--cafe);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .card .tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--tierra);
+            margin-bottom: 10px;
+        }
+
+        .card p { color: var(--cafe-claro); margin-bottom: 14px; }
+
+        .links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .chip {
+            display: inline-block;
+            padding: 8px 14px;
+            background: var(--crema);
+            color: var(--cafe);
+            border: 2px solid var(--cafe);
+            border-radius: 6px;
+            box-shadow: 3px 3px 0 var(--cafe);
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .chip:hover { background: var(--tierra); color: var(--crema); transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--cafe); }
+
+        /* Care guide */
+        .steps { list-style: none; counter-reset: step; }
+
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding: 0 0 18px 52px;
+        }
+
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0; top: 0;
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--mostaza);
+            color: var(--cafe);
+            border: 2px solid var(--cafe);
+            border-radius: 50%;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .steps strong {
+            display: block;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--cafe);
+            margin-bottom: 2px;
+        }
+
+        .steps span { color: var(--cafe-claro); }
+
+        .trouble { list-style: none; }
+
+        .trouble li { padding: 10px 0; border-top: 2px dashed rgba(43, 28, 16, 0.25); color: var(--cafe-claro); }
+        .trouble li:first-child { border-top: none; padding-top: 0; }
+        .trouble b { color: var(--cafe); }
+
+        footer { padding: 40px 0 56px; text-align: center; }
+
+        .sign { font-family: 'Unbounded', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 22px; margin-bottom: 12px; }
+
+        footer a { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+        .vertical-note { font-size: 12px; opacity: 0.8; margin-top: 14px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- Hero -->
+        <header class="hero">
+            <h1 class="display">El Patio<br>de Atrás</h1>
+            <p class="subtitle">Cafecito, Compost &amp; Kokedama</p>
+
+            <div class="when">
+                <div class="date">Saturday, November 14 · 2 to 4 PM</div>
+                <div class="place">Irma's back patio · Charlotte, NC</div>
+                <div class="place">Ticket includes: 1 cafecito + all materials to build your kokedama (moss ball, plant, and potting mix with local cafecito compost)</div>
+            </div>
+
+            <p class="blurb">
+                A backyard afternoon to share coffee, talk about what feeds the earth,
+                and make a little world for a plant to grow in.
+            </p>
+
+            <a class="btn" href="https://posh.vip/e/el-patio-de-atras-cafecito-compost-kokedama" target="_blank" rel="noopener">RSVP on Posh →</a>
+            <p class="blurb" style="margin-top:28px;text-transform:none;font-style:normal;letter-spacing:0">
+                A kokedama is the Japanese art of growing plants in a moss-covered ball of soil.
+                We'll use a custom potting mix of potting soil plus locally sourced cafecito compost:
+                grounds from local coffee shops, broken down over time into soil.
+            </p>
+            <p class="note">Some afternoons are made for staying a little longer.</p>
+        </header>
+
+        <!-- Brands -->
+        <section>
+            <h2 class="display">lento × YAKUMAMA</h2>
+            <p class="lede">Two small brands, one backyard.</p>
+
+            <div class="card">
+                <span class="tag">Cafecito · Compost · Comunidad</span>
+                <h3>lento</h3>
+                <p>
+                    Cuban and Panamanian cafecitos and coffee-ground compost, made in Charlotte.
+                    We turn used grounds from local cafés into enriched soil, building a slower world
+                    one cup at a time, and the foundation for a community space for the
+                    Spanish-speaking community.
+                </p>
+                <div class="links">
+                    <a class="chip" href="https://instagram.com/justlento" target="_blank" rel="noopener">Instagram</a>
+                    <a class="chip" href="https://bio.site/justlento" target="_blank" rel="noopener">All links</a>
+                    <a class="chip" href="index.html">Website</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Plant studio</span>
+                <h3>YAKUMAMA</h3>
+                <p>
+                    Rooted in Amazonian ancestry, crafting living sanctuaries. A rare plant studio based in NC, YAKUMAMA brings the plants and the kokedama know-how
+                    to our backyard afternoon. Find what's in the shop on Etsy.
+                </p>
+                <div class="links">
+                    <a class="chip" href="https://instagram.com/yakumamaplantstudio" target="_blank" rel="noopener">Instagram</a>
+                    <a class="chip" href="https://www.etsy.com/shop/YAKUMAMAPLANTSTUDIO" target="_blank" rel="noopener">Etsy shop</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Care guide -->
+        <section>
+            <h2 class="display">Kokedama care</h2>
+            <p class="lede">Your moss ball is a tiny ecosystem. Here's how to keep it happy after you take it home.</p>
+
+            <div class="card">
+                <ol class="steps">
+                    <li>
+                        <strong>Water by soaking</strong>
+                        <span>When the ball feels light and the moss looks dry (about once a week), set it in a bowl of room-temperature water for 10 to 15 minutes, until it feels heavy again.</span>
+                    </li>
+                    <li>
+                        <strong>Let it drain</strong>
+                        <span>Gently squeeze out the extra water and let it drip on a towel or in the sink before putting it back. Never leave it sitting in a puddle.</span>
+                    </li>
+                    <li>
+                        <strong>Bright, indirect light</strong>
+                        <span>Near a window with filtered light is perfect. Direct afternoon sun will scorch the moss and the plant.</span>
+                    </li>
+                    <li>
+                        <strong>Mist in between</strong>
+                        <span>A light misting every few days keeps the moss green, especially in dry or heated rooms.</span>
+                    </li>
+                    <li>
+                        <strong>Feed lightly</strong>
+                        <span>In spring and summer, add a few drops of diluted liquid fertilizer to the soaking water about once a month. Skip it in winter.</span>
+                    </li>
+                    <li>
+                        <strong>Rotate and trim</strong>
+                        <span>Turn it every so often so the plant grows evenly. Snip yellowing leaves at the base.</span>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3>Reading the signs</h3>
+                <ul class="trouble" style="margin-top: 12px;">
+                    <li><b>Ball feels light, moss browning or crispy:</b> too dry. Give it a longer soak.</li>
+                    <li><b>Mushy, smelly, or moldy:</b> too wet. Let it dry out a bit longer between soaks and give it more air.</li>
+                    <li><b>Droopy leaves:</b> thirsty if the ball is light, overwatered if it's soggy. Check the weight first.</li>
+                    <li><b>Leggy, pale growth:</b> not enough light. Move it somewhere brighter.</li>
+                </ul>
+                <p class="vertical-note" style="color: var(--cafe-claro); margin-top: 8px;">
+                    Care needs vary by plant, so ask us at the event about the one you make.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="sign">Stay lento ☕</div>
+            <a href="mailto:irma@justlento.com">irma@justlento.com</a>
+        </footer>
+
+    </div>
+</body>
+</html>
