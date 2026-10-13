@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lento: Cafecito, Compost, Comunidad</title>
     <meta name="description" content="Cafecito, compost, comunidad. Cuban and Panamanian cafecitos and coffee-ground soil from Charlotte, NC.">
-    <meta property="og:image" content="img/buckets.jpg">
+    <meta property="og:image" content="https://www.justlento.com/img/buckets.jpg">
+    <meta property="og:title" content="lento: cafecito, compost, comunidad">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -41,21 +43,21 @@
         .hero {
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-            gap: 56px;
+            gap: 40px;
             align-items: center;
-            padding: 64px 0 88px;
+            padding: 40px 24px 56px;
         }
 
-        .logo-mark { display: block; width: min(48vw, 190px); height: auto; margin-bottom: 32px; }
+        .logo-mark { display: block; width: min(40vw, 130px); height: auto; margin-bottom: 20px; }
 
         .hero h1 {
             font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
             font-weight: 400;
             text-transform: uppercase;
-            font-size: clamp(44px, 7.4vw, 84px);
+            font-size: clamp(36px, 5.6vw, 58px);
             line-height: 1;
             color: var(--crema);
-            margin-bottom: 24px;
+            margin-bottom: 18px;
         }
 
         .hero h1 span { color: var(--cafe); }
@@ -77,7 +79,7 @@
             border: 3px solid var(--cafe);
             border-radius: 10px;
             box-shadow: 5px 5px 0 var(--cafe);
-            padding: 14px 20px;
+            padding: 10px 16px;
             transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
@@ -95,7 +97,7 @@
         .pill strong {
             font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
             font-weight: 400;
-            font-size: 22px;
+            font-size: 18px;
             text-transform: uppercase;
             line-height: 1.15;
         }
@@ -103,7 +105,7 @@
         .hero-img { width: 100%; height: auto; display: block; border-radius: 14px; border: 3px solid var(--cafe); }
 
         /* What we do */
-        .what { background: var(--cafe); color: var(--crema); padding: 88px 0; }
+        .what { background: var(--cafe); color: var(--crema); padding: 56px 0; }
 
         .what-grid {
             display: grid;
@@ -116,32 +118,41 @@
             font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
             font-weight: 400;
             text-transform: uppercase;
-            font-size: clamp(38px, 6vw, 60px);
+            font-size: clamp(30px, 4.6vw, 44px);
             line-height: 1.02;
             color: var(--tierra);
             margin-bottom: 22px;
         }
 
-        .what p { font-size: 18px; line-height: 1.7; margin-bottom: 16px; max-width: 40ch; color: rgba(255, 255, 255, 0.9); }
+        .what p { font-size: 16px; line-height: 1.65; margin-bottom: 14px; max-width: 40ch; color: rgba(255, 255, 255, 0.9); }
         .what p strong { color: var(--mostaza); }
+
+        .process { font-family: 'Yellowtail', cursive; font-size: 26px; color: var(--mostaza); display: block; line-height: 1; margin-top: 8px; }
+        .steps { list-style: none; counter-reset: step; margin: 8px 0 20px; max-width: 40ch; }
+        .steps li { counter-increment: step; display: grid; grid-template-columns: 20px 4.6em 1fr; gap: 10px; align-items: baseline; padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 16px; color: rgba(255, 255, 255, 0.9); }
+        .steps li:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+        .steps li::before { content: counter(step); font-family: 'Anton', Impact, sans-serif; color: var(--tierra); font-size: 22px; line-height: 1; }
+        .stat { border-left: 4px solid var(--tierra); padding-left: 14px; }
+        .stat b { font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 26px; color: var(--mostaza); letter-spacing: 0.01em; display: block; line-height: 1.1; }
+        .steps b { color: var(--mostaza); font-weight: 600; }
 
         .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .duo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 12px; }
         .duo img:nth-child(2) { margin-top: 36px; }
 
         /* Footer / signup */
-        .end { padding: 88px 0 56px; text-align: center; }
+        .end { padding: 56px 0 40px; text-align: center; }
 
         .end h2 {
             font-family: 'Yellowtail', cursive;
             font-weight: 400;
-            font-size: clamp(44px, 9vw, 72px);
+            font-size: clamp(36px, 6vw, 48px);
             color: var(--crema);
             line-height: 1.1;
             margin-bottom: 8px;
         }
 
-        .end p { font-size: 18px; font-weight: 500; margin-bottom: 28px; }
+        .end p { font-size: 16px; font-weight: 500; margin-bottom: 20px; color: var(--crema); }
 
         .btn {
             display: inline-block;
@@ -161,7 +172,7 @@
 
         .btn:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--crema); }
 
-        .links { display: flex; justify-content: center; gap: 12px 28px; flex-wrap: wrap; margin-top: 64px; }
+        .links { display: flex; justify-content: center; gap: 12px 28px; flex-wrap: wrap; margin-top: 40px; }
 
         .links a {
             font-family: 'IBM Plex Mono', monospace;
@@ -170,17 +181,18 @@
             letter-spacing: 0.03em;
             text-transform: uppercase;
             text-decoration: none;
+            color: var(--crema);
             border-bottom: 2px solid var(--cafe);
             padding-bottom: 1px;
         }
 
-        .links a:hover { color: var(--crema); border-color: var(--crema); }
+        .links a:hover { color: var(--cafe); }
 
         @media (max-width: 768px) {
             .hero, .what-grid { grid-template-columns: minmax(0, 1fr); }
-            .hero { gap: 40px; padding: 40px 0 64px; }
-            .what { padding: 64px 0; }
-            .end { padding-top: 64px; }
+            .hero { gap: 28px; padding: 28px 24px 40px; }
+            .what { padding: 44px 0; }
+            .end { padding-top: 44px; }
         }
     </style>
 </head>
@@ -189,7 +201,6 @@
         <div>
             <img class="logo-mark" src="lento-logo.png" alt="lento">
             <h1>Cafecito.<br><span>Compost.</span><br>Comunidad.</h1>
-            <p>Charlotte coffee grounds, turned into soil.</p>
             <a class="pill" href="kokedama">
                 <small>Next up · Sat, Nov 14 · 2 to 4 PM</small>
                 <strong>El Patio de Atrás →</strong>
@@ -203,16 +214,18 @@
             <div>
                 <h2>Slow coffee,<br>slow soil.</h2>
                 <p>
-                    <strong>la ventanita</strong> pops up around Charlotte serving Cuban and
-                    Panamanian cafecitos: cortaditos, coladas, café con leche.
+                    <strong>la ventanita</strong> is our little cafecito window. we serve cuban and panamanian
+                    cafecitos around charlotte, and every cup pays for the composting.
                 </p>
+                <span class="process">our process · nuestro proceso</span>
+                <ol class="steps">
+                    <li><b>collect</b><span>used grounds from six charlotte coffee shops, every week</span></li>
+                    <li><b>wait</b><span>10 to 12 weeks of hot composting, so it's safe for every plant</span></li>
+                    <li><b>grow</b><span>plants, gardens, whatever needs it</span></li>
+                </ol>
+                <p class="stat"><b>500+ lbs</b> of coffee grounds kept out of landfills since april 2025. y contando.</p>
                 <p>
-                    Every weekend we collect used grounds from local cafés and let them
-                    break down for 10 to 12 weeks until they're soil.
-                </p>
-                <p>
-                    It all builds toward a recreation center for Charlotte's Spanish-speaking
-                    community. Slowly, on purpose.
+                    next: cafecito compost, bagged up for your plants. after that, a place for the spanish-speaking community to compost together.
                 </p>
             </div>
             <div class="duo">
@@ -225,8 +238,8 @@
     <footer class="end">
         <div class="container">
             <h2>stay lento ☕</h2>
-            <p>Cafecito Compost soil is coming soon. Get a note when it's ready.</p>
-            <a class="btn" href="https://justlento.substack.com/" target="_blank" rel="noopener">Get the letters →</a>
+            <p>we're testing cafecito compost with houseplant people and gardeners. want in?</p>
+            <a class="btn" href="https://justlento.substack.com/" target="_blank" rel="noopener">join the beta →</a>
             <div class="links">
                 <a href="https://instagram.com/justlento" target="_blank" rel="noopener">Instagram</a>
                 <a href="https://tiktok.com/@slowdownirma" target="_blank" rel="noopener">TikTok</a>
